@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_shorts"
+            android:icon="@drawable/ic_play_24"
+            android:title="Shorts Feed" />
+        <item
+            android:id="@+id/nav_videos"
+            android:icon="@drawable/ic_play_24"
+            android:title="Videos Feed" />
+        <item
+            android:id="@+id/nav_ai_chat"
+            android:icon="@drawable/ic_info_24"
+            android:title="AI Chat &amp; Agents" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_person_24"
+            android:title="My Profile" />
+        <item
+            android:id="@+id/nav_messages"
+            android:icon="@drawable/ic_comment_24"
+            android:title="Messages &amp; Contacts" />
+        <item
+            android:id="@+id/nav_notes"
+            android:icon="@drawable/ic_comment_24"
+            android:title="Notes &amp; Tasks" />
+        <item
+            android:id="@+id/nav_calculator"
+            android:icon="@drawable/ic_calculator_24"
+            android:title="Calculator" />
+        <item
+            android:id="@+id/nav_weather"
+            android:icon="@drawable/ic_weather_24"
+            android:title="Live Weather" />
+        <item
+            android:id="@+id/nav_qrcode"
+            android:icon="@drawable/ic_qr_code_24"
+            android:title="QR Code Generator" />
+        <item
+            android:id="@+id/nav_converter"
+            android:icon="@drawable/ic_converter_24"
+            android:title="Unit Converter" />
+        <item
+            android:id="@+id/nav_games"
+            android:icon="@drawable/ic_play_24"
+            android:title="Mini Games" />
+        <item
+            android:id="@+id/nav_developer_info"
+            android:icon="@drawable/ic_info_24"
+            android:title="Developer Info" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_24"
+            android:title="Settings" />
+    </group>
+
+    <item android:title="Account">
+        <menu>
+            <item
+                android:id="@+id/nav_sign_out"
+                android:icon="@drawable/ic_logout_24"
+                android:title="Sign Out" />
+        </menu>
+    </item>
+</menu>

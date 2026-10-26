@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Modern Material 3 Deep Forest & Mint Palette -->
+    <color name="md_theme_primary">#1B4332</color>
+    <color name="md_theme_onPrimary">#FFFFFF</color>
+
+    <!-- Soft Containers & Highlights -->
+    <color name="md_theme_primaryContainer">#D8F3DC</color>
+    <color name="md_theme_onPrimaryContainer">#081C15</color>
+
+    <color name="md_theme_surface">#F4F8F5</color>
+    <color name="md_theme_surfaceContainerHigh">#FFFFFF</color>
+    <color name="md_theme_surfaceContainerHighest">#E4EFEA</color>
+
+    <!-- Typography Text Colors -->
+    <color name="md_theme_onSurface">#0F1914</color>
+    <color name="md_theme_onSurfaceVariant">#43554B</color>
+    <color name="md_theme_outline">#D2DFD8</color>
+</resources>

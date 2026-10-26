@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/playerRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- ExoPlayer PlayerView -->
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/playerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:use_controller="true"
+        app:show_buffering="always"
+        app:resize_mode="fit" />
+
+    <!-- Top Bar Overlay -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <ImageButton
+            android:id="@+id/playerBackButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_arrow_back_24"
+            android:background="@drawable/bg_icon_circle"
+            android:padding="12dp"
+            app:tint="@color/md_theme_primary"
+            android:contentDescription="Close Full Screen" />
+
+        <TextView
+            android:id="@+id/playerTopTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:text="Shorts Player"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+    </LinearLayout>
+
+    <!-- Bottom Overlay: Details & Actions -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        android:padding="20dp"
+        android:background="@drawable/bg_gradient_overlay">
+
+        <!-- Info Column -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/playerUploader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\@username"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/playerTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Short Title"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="2dp" />
+
+            <TextView
+                android:id="@+id/playerDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description..."
+                android:textColor="#DDDDDD"
+                android:textSize="13sp"
+                android:maxLines="3"
+                android:ellipsize="end" />
+
+        </LinearLayout>
+
+        <!-- Right Side Action Buttons: Like, Comment, Share, Edit, Delete -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginStart="16dp">
+
+            <!-- Like Button -->
+            <LinearLayout
+                android:id="@+id/playerLikeLayout"
+                android:layout_width="56dp"
+                android:layout_height="64dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/playerIvLike"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_favorite_border_24"
+                    app:tint="#FFFFFF"
+                    android:contentDescription="Like" />
+
+                <TextView
+                    android:id="@+id/playerLikesCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="0"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Comment Button -->
+            <LinearLayout
+                android:id="@+id/playerCommentLayout"
+                android:layout_width="56dp"
+                android:layout_height="64dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="4dp">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_comment_24"
+                    app:tint="#FFFFFF"
+                    android:contentDescription="Comment" />
+
+                <TextView
+                    android:id="@+id/playerCommentsCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="0"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Share Button -->
+            <ImageButton
+                android:id="@+id/playerBtnShare"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/ic_share_24"
+                android:background="@drawable/bg_icon_circle"
+                android:padding="10dp"
+                app:tint="@color/md_theme_primary"
+                android:contentDescription="Share" />
+
+            <!-- Edit Button (Owner Only) -->
+            <ImageButton
+                android:id="@+id/playerBtnEdit"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_edit_24"
+                android:background="@drawable/bg_icon_circle"
+                android:padding="10dp"
+                app:tint="@color/md_theme_primary"
+                android:visibility="gone"
+                android:contentDescription="Edit Short" />
+
+            <!-- Delete Button (Owner Only) -->
+            <ImageButton
+                android:id="@+id/playerBtnDelete"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_delete_24"
+                android:background="@drawable/bg_icon_circle"
+                android:padding="10dp"
+                app:tint="#BA1A1A"
+                android:visibility="gone"
+                android:contentDescription="Delete Short" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

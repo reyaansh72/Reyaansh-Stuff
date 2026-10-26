@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/qrRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login_gradient"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp">
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:id="@+id/qrTopBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="16dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/qrBackButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_arrow_back_24"
+            android:background="@drawable/bg_icon_circle"
+            android:padding="12dp"
+            app:tint="@color/md_theme_primary"
+            android:contentDescription="Back" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:text="QR Code Generator"
+            android:textColor="@color/md_theme_onSurface"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/qrTopBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="32dp">
+
+            <!-- Input Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/md_theme_surfaceContainerHigh"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/md_theme_outline"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter URL or Text..."
+                        app:boxBackgroundColor="@color/md_theme_surfaceContainerHighest"
+                        app:boxCornerRadiusTopStart="24dp"
+                        app:boxCornerRadiusTopEnd="24dp"
+                        app:boxCornerRadiusBottomStart="24dp"
+                        app:boxCornerRadiusBottomEnd="24dp"
+                        app:boxStrokeColor="@color/md_theme_primary"
+                        android:layout_marginBottom="16dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etQrInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:textColor="@color/md_theme_onSurface" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnGenerateQr"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:text="Generate QR Code"
+                        android:textAllCaps="false"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="26dp"
+                        app:backgroundTint="@color/md_theme_primary" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- QR Preview Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@color/md_theme_surfaceContainerHigh"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/md_theme_outline"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivQrPreview"
+                        android:layout_width="220dp"
+                        android:layout_height="220dp"
+                        android:src="@drawable/ic_qr_code_24"
+                        android:padding="16dp"
+                        android:contentDescription="QR Code Preview" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnShareQr"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Share QR Link"
+                        android:textAllCaps="false"
+                        android:textSize="15sp"
+                        android:textColor="@color/md_theme_primary"
+                        app:cornerRadius="25dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- ExoPlayer Video Player View -->
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/shortPlayerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:use_controller="false"
+        app:resize_mode="fill"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Dark Gradient Overlay for Readability -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:background="@drawable/bg_gradient_overlay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Right Side Vertical Control Column -->
+    <LinearLayout
+        android:id="@+id/rightControlsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Creator Avatar Button -->
+        <ImageButton
+            android:id="@+id/btnShortAvatar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_person_24"
+            android:background="@drawable/bg_icon_circle"
+            android:padding="12dp"
+            app:tint="@color/md_theme_primary"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Creator Profile" />
+
+        <!-- Like Button -->
+        <ImageButton
+            android:id="@+id/btnShortLike"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_favorite_border_24"
+            android:background="@drawable/bg_icon_circle"
+            android:padding="12dp"
+            app:tint="#FFFFFF"
+            android:contentDescription="Like" />
+
+        <TextView
+            android:id="@+id/tvShortLikeCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Comment Button -->
+        <ImageButton
+            android:id="@+id/btnShortComment"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_comment_24"
+            android:background="@drawable/bg_icon_circle"
+            android:padding="12dp"
+            app:tint="#FFFFFF"
+            android:contentDescription="Comments" />
+
+        <TextView
+            android:id="@+id/tvShortCommentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Share Button -->
+        <ImageButton
+            android:id="@+id/btnShortShare"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_share_24"
+            android:background="@drawable/bg_icon_circle"
+            android:padding="12dp"
+            app:tint="#FFFFFF"
+            android:contentDescription="Share" />
+
+        <!-- Owner Edit Button -->
+        <ImageButton
+            android:id="@+id/btnShortEdit"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_edit_24"
+            android:background="@drawable/bg_icon_circle"
+            android:padding="10dp"
+            app:tint="#FFFFFF"
+            android:visibility="gone"
+            android:contentDescription="Edit Short" />
+
+        <!-- Owner Delete Button -->
+        <ImageButton
+            android:id="@+id/btnShortDelete"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_delete_24"
+            android:background="@drawable/bg_icon_circle"
+            android:padding="10dp"
+            app:tint="#FF4D4D"
+            android:visibility="gone"
+            android:contentDescription="Delete Short" />
+
+    </LinearLayout>
+
+    <!-- Bottom Left Creator & Title Overlay -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rightControlsLayout">
+
+        <TextView
+            android:id="@+id/tvShortUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@username"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/tvShortTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Short Caption / Title"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:maxLines="3"
+            android:ellipsize="end" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

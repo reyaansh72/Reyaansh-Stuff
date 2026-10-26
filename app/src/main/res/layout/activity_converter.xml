@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/converterRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login_gradient"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp">
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:id="@+id/convTopBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="16dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/convBackButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_arrow_back_24"
+            android:background="@drawable/bg_icon_circle"
+            android:padding="12dp"
+            app:tint="@color/md_theme_primary"
+            android:contentDescription="Back" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:text="Unit Converter"
+            android:textColor="@color/md_theme_onSurface"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/convTopBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="32dp">
+
+            <!-- Main Converter Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@color/md_theme_surfaceContainerHigh"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/md_theme_outline"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter value..."
+                        app:boxBackgroundColor="@color/md_theme_surfaceContainerHighest"
+                        app:boxCornerRadiusTopStart="24dp"
+                        app:boxCornerRadiusTopEnd="24dp"
+                        app:boxCornerRadiusBottomStart="24dp"
+                        app:boxCornerRadiusBottomEnd="24dp"
+                        app:boxStrokeColor="@color/md_theme_primary"
+                        android:layout_marginBottom="16dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etConvInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:singleLine="true"
+                            android:textColor="@color/md_theme_onSurface" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Conversion Options -->
+                    <RadioGroup
+                        android:id="@+id/convTypeRadioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <RadioButton
+                            android:id="@+id/radioCtoF"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Temperature: °C ➔ °F"
+                            android:checked="true"
+                            android:textColor="@color/md_theme_onSurface"
+                            android:textSize="15sp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp" />
+
+                        <RadioButton
+                            android:id="@+id/radioFtoC"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Temperature: °F ➔ °C"
+                            android:textColor="@color/md_theme_onSurface"
+                            android:textSize="15sp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp" />
+
+                        <RadioButton
+                            android:id="@+id/radioKmToMiles"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Distance: km ➔ miles"
+                            android:textColor="@color/md_theme_onSurface"
+                            android:textSize="15sp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp" />
+
+                        <RadioButton
+                            android:id="@+id/radioKgToLbs"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Weight: kg ➔ lbs"
+                            android:textColor="@color/md_theme_onSurface"
+                            android:textSize="15sp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp" />
+
+                    </RadioGroup>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnConvert"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:text="Convert Value"
+                        android:textAllCaps="false"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="26dp"
+                        app:backgroundTint="@color/md_theme_primary" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Result Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@color/md_theme_surfaceContainerHigh"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/md_theme_outline"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Converted Result"
+                        android:textColor="@color/md_theme_onSurfaceVariant"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvConvResult"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="0.0"
+                        android:textColor="@color/md_theme_primary"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

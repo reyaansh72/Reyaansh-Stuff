@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Modern Material 3 Dark Mode Palette -->
+    <color name="md_theme_primary">#52B788</color>
+    <color name="md_theme_onPrimary">#081C15</color>
+
+    <!-- Soft Containers & Highlights -->
+    <color name="md_theme_primaryContainer">#1B4332</color>
+    <color name="md_theme_onPrimaryContainer">#D8F3DC</color>
+
+    <color name="md_theme_surface">#121815</color>
+    <color name="md_theme_surfaceContainerHigh">#1E2823</color>
+    <color name="md_theme_surfaceContainerHighest">#283630</color>
+
+    <!-- Typography Text Colors -->
+    <color name="md_theme_onSurface">#E2ECE9</color>
+    <color name="md_theme_onSurfaceVariant">#B0C4BA</color>
+    <color name="md_theme_outline">#3F5349</color>
+</resources>

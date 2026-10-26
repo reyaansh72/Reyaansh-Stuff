@@ -1,0 +1,61 @@
+# Gradle
+.gradle/
+build/
+**/build/
+gradle-app.setting
+!gradle-wrapper.jar
+
+# Local Android SDK path
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Generated APKs and App Bundles
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Java compiled files
+*.class
+
+# Signing keys and credentials
+*.jks
+*.keystore
+keystore.properties
+
+# Sensitive configuration
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Kotlin (if added later)
+.kotlin/
+
+# Native build outputs
+.cxx/
+.externalNativeBuild/
+
+# Firebase configuration (if containing project-specific credentials)
+# Uncomment if you don't want to track this file:
+# google-services.json

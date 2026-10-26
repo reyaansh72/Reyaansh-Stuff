@@ -1,0 +1,38 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.ReyaanshsStuff" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/md_theme_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_onPrimaryContainer</item>
+    </style>
+
+    <style name="Theme.ReyaanshsStuff" parent="Base.Theme.ReyaanshsStuff" />
+
+    <style name="Theme.ReyaanshsStuff.EmeraldGreen" parent="Theme.ReyaanshsStuff">
+        <item name="colorPrimary">#52B788</item>
+        <item name="colorOnPrimary">#081C15</item>
+        <item name="colorPrimaryContainer">#1B4332</item>
+        <item name="colorOnPrimaryContainer">#D8F3DC</item>
+    </style>
+
+    <style name="Theme.ReyaanshsStuff.OceanBlue" parent="Theme.ReyaanshsStuff">
+        <item name="colorPrimary">#48CAE4</item>
+        <item name="colorOnPrimary">#001D28</item>
+        <item name="colorPrimaryContainer">#005F73</item>
+        <item name="colorOnPrimaryContainer">#CAE9FF</item>
+    </style>
+
+    <style name="Theme.ReyaanshsStuff.RoyalPurple" parent="Theme.ReyaanshsStuff">
+        <item name="colorPrimary">#C77DFF</item>
+        <item name="colorOnPrimary">#240046</item>
+        <item name="colorPrimaryContainer">#5A189A</item>
+        <item name="colorOnPrimaryContainer">#E0AAFF</item>
+    </style>
+
+    <style name="Theme.ReyaanshsStuff.SunsetAmber" parent="Theme.ReyaanshsStuff">
+        <item name="colorPrimary">#FF758F</item>
+        <item name="colorOnPrimary">#59000F</item>
+        <item name="colorPrimaryContainer">#9A031E</item>
+        <item name="colorOnPrimaryContainer">#FFCCD5</item>
+    </style>
+</resources>

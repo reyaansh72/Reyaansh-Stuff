@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/messageItemRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp">
+
+    <LinearLayout
+        android:id="@+id/messageBubbleLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:maxWidth="280dp"
+        android:padding="12dp"
+        android:background="@drawable/bg_icon_rounded">
+
+        <!-- Reply-to Banner (if any) -->
+        <TextView
+            android:id="@+id/tvReplyBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Replying to..."
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Message Text -->
+        <TextView
+            android:id="@+id/tvMessageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Message content"
+            android:textSize="15sp" />
+
+        <!-- Media preview or link indicator -->
+        <TextView
+            android:id="@+id/tvMediaIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="📎 Attached Media URL"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <!-- Reactions View -->
+        <TextView
+            android:id="@+id/tvReactions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="❤️ 1"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</LinearLayout>
