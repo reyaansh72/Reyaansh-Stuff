@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Modern Material 3 Deep Forest & Mint Palette -->
-    <color name="md_theme_primary">#1B4332</color>
+    <!-- Material 3 Yellow & Amber Palette -->
+
+    <color name="md_theme_primary">#795900</color>
     <color name="md_theme_onPrimary">#FFFFFF</color>
 
-    <!-- Soft Containers & Highlights -->
-    <color name="md_theme_primaryContainer">#D8F3DC</color>
-    <color name="md_theme_onPrimaryContainer">#081C15</color>
+    <!-- Soft Yellow Containers -->
+    <color name="md_theme_primaryContainer">#FFDF9E</color>
+    <color name="md_theme_onPrimaryContainer">#261900</color>
 
-    <color name="md_theme_surface">#F4F8F5</color>
-    <color name="md_theme_surfaceContainerHigh">#FFFFFF</color>
-    <color name="md_theme_surfaceContainerHighest">#E4EFEA</color>
+    <!-- Surfaces -->
+    <color name="md_theme_surface">#FFF9ED</color>
+    <color name="md_theme_surfaceContainerHigh">#FFF1D6</color>
+    <color name="md_theme_surfaceContainerHighest">#F5E7CA</color>
 
-    <!-- Typography Text Colors -->
-    <color name="md_theme_onSurface">#0F1914</color>
-    <color name="md_theme_onSurfaceVariant">#43554B</color>
-    <color name="md_theme_outline">#D2DFD8</color>
+    <!-- Typography -->
+    <color name="md_theme_onSurface">#201B10</color>
+    <color name="md_theme_onSurfaceVariant">#514632</color>
+    <color name="md_theme_outline">#D6C5A3</color>
 </resources>
