@@ -1,15 +1,15 @@
-name: Build and Release
+name: Android APK Release
 
 on:
   workflow_dispatch:
     inputs:
       release_name:
-        description: "Release name (e.g. Reyaansh's Stuff v2.0)"
+        description: "Release name"
         required: true
         type: string
 
       release_tag:
-        description: "Git tag (e.g. v2.0)"
+        description: "Release tag (example: v1.0.0)"
         required: true
         type: string
 
@@ -18,79 +18,96 @@ permissions:
 
 jobs:
   build:
-    name: Build Android App
+    name: Build Android APK
     runs-on: windows-latest
 
     steps:
       # Checkout repository
-      - name: Checkout source
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # Configure Java
-      - name: Set up JDK 17
+      # Install Java 21
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 17
+          java-version: "21"
 
-      # Configure Android SDK
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+      # Setup Android SDK (no deprecated tools package)
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v4
 
-      - name: Install Android SDK components
+      # Install required Android SDK versions
+      - name: Install Android SDK Packages
         shell: pwsh
         run: |
-          sdkmanager "platforms;android-36"
-          sdkmanager "build-tools;36.0.0"
+          sdkmanager "platforms;android-36" "build-tools;36.0.0"
+
+      # Gradle caching
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
 
       # Validate release tag
-      - name: Validate release information
+      - name: Validate Release Tag
         shell: pwsh
         env:
           RELEASE_TAG: ${{ inputs.release_tag }}
         run: |
-          if ($env:RELEASE_TAG -notmatch '^[A-Za-z0-9][A-Za-z0-9._/-]*$') {
-            throw "Invalid release tag."
+          if ([string]::IsNullOrWhiteSpace($env:RELEASE_TAG)) {
+            throw "Release tag cannot be empty."
           }
 
-          if ($env:RELEASE_TAG -match '\.\.|/$') {
-            throw "Invalid release tag."
+          git check-ref-format "refs/tags/$env:RELEASE_TAG"
+
+          if ($LASTEXITCODE -ne 0) {
+            throw "Invalid Git tag: $env:RELEASE_TAG"
           }
 
-      # Build APK
-      - name: Build Release APK
+      # Build APKs
+      - name: Build Debug and Release APKs
         shell: pwsh
         run: |
-          .\gradlew.bat --no-daemon clean assembleRelease
+          .\gradlew.bat --no-daemon clean assembleDebug assembleRelease
 
-      # Verify output
-      - name: Check APK
+      # Prepare release assets
+      - name: Prepare APK Files
         shell: pwsh
         run: |
-          $apk = Get-ChildItem `
-            -Path "app\build\outputs\apk\release" `
-            -Filter "*.apk" `
-            -File
+          $output = "release-assets"
+          New-Item -ItemType Directory -Force -Path $output | Out-Null
 
-          if (-not $apk) {
-            throw "No APK found!"
+          $debugApk = Get-ChildItem `
+            "app\build\outputs\apk\debug" `
+            -Filter "*.apk" -File |
+            Select-Object -First 1
+
+          $releaseApk = Get-ChildItem `
+            "app\build\outputs\apk\release" `
+            -Filter "*.apk" -File |
+            Select-Object -First 1
+
+          if (-not $debugApk) {
+            throw "Debug APK was not generated!"
           }
 
-          Write-Host "Generated APKs:"
-          $apk | ForEach-Object {
-            Write-Host "$($_.Name) - $([math]::Round($_.Length / 1MB, 2)) MB"
+          if (-not $releaseApk) {
+            throw "Release APK was not generated!"
           }
 
-      # Upload APK as workflow artifact
-      - name: Upload APK artifact
+          Copy-Item $debugApk.FullName "$output\ReyaanshsStuff-debug.apk"
+          Copy-Item $releaseApk.FullName "$output\ReyaanshsStuff-release.apk"
+
+          Get-ChildItem $output
+
+      # Upload build artifacts
+      - name: Upload APK Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Reyaansh-Stuff-${{ inputs.release_tag }}
-          path: app/build/outputs/apk/release/*.apk
+          name: ReyaanshsStuff-Android-APKs
+          path: release-assets/*.apk
           if-no-files-found: error
-          retention-days: 30
 
       # Publish GitHub Release
       - name: Publish GitHub Release
@@ -100,5 +117,5 @@ jobs:
           name: ${{ inputs.release_name }}
           target_commitish: ${{ github.sha }}
           generate_release_notes: true
+          files: release-assets/*.apk
           fail_on_unmatched_files: true
-          files: app/build/outputs/apk/release/*.apk
